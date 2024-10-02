@@ -17,7 +17,7 @@ const Footer = () => {
           <Typography color='#fff' component={Link} href='/diagnostics'>Diagnostics</Typography>
           <Typography color='#fff' component={Link} href='/ngos'>NGOs</Typography>
         </Stack>
-        <Stack direction='row' gap={4} justifyContent='center' py={3}>
+        <Stack direction='row' gap={4} justifyContent='center' p={3}>
           <Image src={facebook} alt='facebook' width={30} height={30} />
           <Image src={instagramIcon} alt='facebook' width={30} height={30} />
           <Image src={twitterIcon} alt='facebook' width={30} height={30} />
