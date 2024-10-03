@@ -14,10 +14,14 @@ export const theme = createTheme({
   components:{
     MuiButton:{
         defaultProps:{
-            variant:'contained'
+            variant:'contained',
+            
         },
+        
         styleOverrides:{
-          root:'8px 24px'
+          root: {
+            padding: '8px 24px',
+         },
         }
     },
     MuiContainer:{

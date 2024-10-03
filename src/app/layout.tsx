@@ -3,7 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 import Providers from "@/lib/Providers/Providers";
-
+import { Toaster } from "sonner";
+import React from 'react'
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -33,7 +34,10 @@ export default function RootLayout({
       >
         <AppRouterCacheProvider>
 
-        {children}
+       <>
+       <Toaster position="top-center" />
+       {children}
+       </>
         </AppRouterCacheProvider>
       </body>
     </html>

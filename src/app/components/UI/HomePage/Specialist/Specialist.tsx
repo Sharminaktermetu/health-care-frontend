@@ -10,7 +10,7 @@ const Specialist = async() => {
         }
     })
     const {data:specialties} =await res.json()
-    console.log(specialties)
+  
 
   return (
     <Container>
