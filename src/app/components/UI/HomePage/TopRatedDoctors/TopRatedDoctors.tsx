@@ -4,13 +4,11 @@ import {
     Card,
     CardActions,
     CardContent,
-    CardMedia,
     Container,
-    Grid,
     Typography,
 } from '@mui/material';
 import Image from 'next/image';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 import Link from 'next/link';
 
 const TopRatedDoctors = async () => {
@@ -84,12 +82,12 @@ const TopRatedDoctors = async () => {
                                         {doctor.qualification}, {doctor.designation}
                                     </Typography>
                                     <Typography
-                              variant='body2'
-                              color='text.secondary'
-                              mt={1}
-                           >
-                              <LocationOnIcon /> {doctor.address}
-                           </Typography>
+                                        variant='body2'
+                                        color='text.secondary'
+                                        mt={1}
+                                    >
+                                        <LocationOnRoundedIcon /> {doctor.address}
+                                    </Typography>
                                 </CardContent>
                                 <CardActions sx={{ justifyContent: 'space-between', padding: '10px' }}>
                                     <Button size="small">View Profile</Button>
@@ -105,23 +103,23 @@ const TopRatedDoctors = async () => {
                 </Box>
 
                 <Box
-               sx={{
-                  textAlign: 'center',
-               }}
-            >
-               <Button
-                  variant='outlined'
-                  sx={{
-                     marginTop: '-120px',
-                  }}
-                  component={Link}
-                  href='/doctors'
-               >
-                  View ALL
-               </Button>
-            </Box>
+                    sx={{
+                        textAlign: 'center',
+                    }}
+                >
+                    <Button
+                        variant='outlined'
+                        sx={{
+                            marginTop: '-120px',
+                        }}
+                        component={Link}
+                        href='/doctors'
+                    >
+                        View ALL
+                    </Button>
+                </Box>
             </Container>
-           
+
         </Box>
     );
 };

@@ -1,29 +1,34 @@
 import { Box, Container, Grid2, Typography } from "@mui/material";
-import assets from "@/assets";
+
+import img1 from "@/assets/svgs/award-icon.svg";
+import img2 from "@/assets/svgs/care-icon.svg";
+import img3 from "@/assets/svgs/medical-equipment-icon.svg";
+import img4 from "@/assets/svgs/call-icon.svg";
+
 import chooseUsImg from "@/assets/choose-us.png";
 import Image from "next/image";
 
 const servicesData = [
   {
-    imageSrc: assets.svgs.award,
+    imageSrc: img1,
     title: "Award Winning Service",
     description:
       "Duas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui offici",
   },
   {
-    imageSrc: assets.svgs.care,
+    imageSrc: img2,
     title: "Best Quality Pregnancy Care",
     description:
       "Duas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui offici",
   },
   {
-    imageSrc: assets.svgs.equipment,
+    imageSrc: img3,
     title: "Complete Medical Equipments",
     description:
       "Duas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui offici",
   },
   {
-    imageSrc: assets.svgs.call,
+    imageSrc: img4,
     title: "Dedicated Emergency Care",
     description:
       "Duas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui offici",

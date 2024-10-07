@@ -22,8 +22,10 @@ const Footer = () => {
           <Image src={instagramIcon} alt='facebook' width={30} height={30} />
           <Image src={twitterIcon} alt='facebook' width={30} height={30} />
           <Image src={linkedIcon} alt='facebook' width={30} height={30} />\
-          <div className="border-b-[1px] border-dashed"></div>
+          {/* <div className="border-b-[1px] border-dashed"></div> */}
+         
           </Stack>
+          <Box sx={{border:'1px dashed lightgray'}}></Box>
           <Stack
             direction="row"
             gap={2}

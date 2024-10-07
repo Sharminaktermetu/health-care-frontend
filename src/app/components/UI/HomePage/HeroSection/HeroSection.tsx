@@ -1,6 +1,5 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import Image from "next/image";
-import assets from "@/assets";
 import grid from "@/assets/svgs/grid.svg";
 import doctor1 from "@/assets/images/doctor1.png";
 import doctor2 from "@/assets/images/doctor2.png";
