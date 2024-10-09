@@ -12,8 +12,9 @@ type TFormProps ={
 
 
 const PHForm = ({children,onSubmit,resolver,defaultValues}:TFormProps) => {
-
+// 
   const formConfig:TFormConfig ={}
+
   if (resolver) {
     formConfig["resolver"] =resolver;
   }
@@ -22,7 +23,7 @@ const PHForm = ({children,onSubmit,resolver,defaultValues}:TFormProps) => {
   }
 
 
-
+// form submit
     const methods = useForm(formConfig);
     const submit:SubmitHandler<FieldValues> = (data) => {
       console.log(data)

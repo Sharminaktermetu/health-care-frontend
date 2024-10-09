@@ -55,29 +55,37 @@ export default function DashboardDrawer({children}:{children:React.ReactNode}) {
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          bgcolor:'#F4F7FE',
+          borderBottom:'1px soid lightgray'
         }}
       >
         <Toolbar>
           <IconButton
-            color="inherit"
+            
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { sm: 'none' } , color:'primary.main'}}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Responsive drawer
+          <Box>
+          <Typography color='primary.main' variant="h6" noWrap component="div">
+            Hi Sharmin
           </Typography>
+          <Typography color='primary.main' variant="h6" noWrap component="div">
+            Welcome To PH Health Care !!
+          </Typography>
+          </Box>
         </Toolbar>
       </AppBar>
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        
         aria-label="mailbox folders"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+       
         <Drawer
           
           variant="temporary"
@@ -90,7 +98,9 @@ export default function DashboardDrawer({children}:{children:React.ReactNode}) {
           sx={{
             display: { xs: 'block', sm: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+           
           }}
+          
         >
          <Sidebar/>
         </Drawer>

@@ -75,7 +75,7 @@ const RegisterPage = () => {
         if (resust?.data?.accessToken) {
 
           storeUserInfo({ accessToken: res?.data?.accessToken })
-          router.push('/')
+          router.push('/dashboard')
 
         }
       }

@@ -28,7 +28,7 @@ const PHInputs = ({
 
   return (
     <Controller
-      control={control}
+      control={control} 
       name={name}
       
       render={({ field, fieldState:{error} }) => (
