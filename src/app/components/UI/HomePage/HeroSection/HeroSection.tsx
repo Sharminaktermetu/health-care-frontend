@@ -25,7 +25,7 @@ const HeroSection = () => {
             top: "-120px",
           }}
         >
-          <Image src={grid} alt="grid" />
+          <Image src={grid} alt="grid"/>
         </Box>
         <Typography variant="h2" component="h1" fontWeight={600}>
           Healthier Hearts

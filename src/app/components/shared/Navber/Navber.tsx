@@ -1,10 +1,9 @@
 "use client"
 
 
-import { getUserInfo, isLoggedin, removeUser } from '@/services/actions/auth.service'
-import { Box, Button, Container, Stack, Typography } from '@mui/material'
+
+import { Box, Container, Stack, Typography } from '@mui/material'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import React from 'react'
 
 import dynamic from 'next/dynamic'

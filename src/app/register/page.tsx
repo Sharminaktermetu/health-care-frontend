@@ -24,17 +24,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 
-interface IPatientData {
-  name: string;
-  email: string;
-  contactNumber: string;
-  address: string;
-}
 
-interface IPatientRegisterFormData {
-  password: string;
-  patient: IPatientData;
-}
+
 
 export const patientValidationSchema = z.object({
   email:z.string().email('Please provide valied email'),

@@ -1,8 +1,9 @@
-import { SxProps, TextField } from '@mui/material';
+import { MenuItem, SxProps, TextField } from '@mui/material';
 import React from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 
 type TInputProps = {
+    items:string[],
   name: string;
   label?: string;
   type?: string;
@@ -15,14 +16,15 @@ type TInputProps = {
   
 };
 
-const PHInputs = ({
+const PHSelectField = ({
   name,
   label,
   type = 'text',
   size = 'small',
   fullWidth,
   sx,
-  required
+  required,
+  items
 }: TInputProps) => {
   const { control } = useFormContext();
 
@@ -38,16 +40,23 @@ const PHInputs = ({
           type={type}
           variant="outlined"
           size={size}
+          select
           sx={sx}
           fullWidth={fullWidth}
           placeholder={label}
         required={required}
         error={!!error?.message}
         helperText={error?.message}
-        />
+        > 
+        {items.map((name) => (
+            <MenuItem key={name} value={name}>
+              {name}
+            </MenuItem>
+          ))}
+        </TextField>
       )}
     />
   );
 };
 
-export default PHInputs;
+export default PHSelectField;

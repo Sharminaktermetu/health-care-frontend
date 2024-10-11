@@ -5,12 +5,11 @@ import React from 'react'
 const Specialist = async() => {
 
     const res = await fetch ('http://localhost:5001/api/v1/specialties',{
-        next:{
-            revalidate:30
-        }
+       next:{
+        revalidate:30
+       }
     })
     const {data:specialties} =await res.json()
-  
 
   return (
     <Container>
@@ -24,12 +23,14 @@ const Specialist = async() => {
           </Typography>
         </Box>
         <Stack direction="row" gap={4} mt={5}>
-          {specialties.map((specialty: any) => (
+          {specialties.slice(0,6
+
+          ).map((specialty: any) => (
             <Box
-              key={specialty.id}
+              key={specialty?.id}
               sx={{
                 flex: 1,
-                width: "150px",
+                width: "50px",
                 backgroundColor: "rgba(245, 245, 245,1)",
                 border: "1px solid rgba(250, 250, 250, 1)",
                 borderRadius: "10px",
@@ -49,14 +50,14 @@ const Specialist = async() => {
               }}
             >
               <Image
-                src={specialty.icon}
+                src={specialty?.icon}
                 width={100}
                 height={100}
                 alt="specialty icon"
               />
               <Box>
                 <Typography component="p" fontWeight={600} fontSize={18} mt={2}>
-                  {specialty.title}
+                  {specialty?.title}
                 </Typography>
               </Box>
             </Box>

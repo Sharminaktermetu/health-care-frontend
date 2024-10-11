@@ -54,7 +54,7 @@ const TopRatedDoctors = async () => {
                     {
                         doctors.map((doctor: any) => (
 
-                            <Card>
+                            <Card key={doctor.id}>
                                 <Box
                                     sx={{
                                         width: '100%',
@@ -68,7 +68,7 @@ const TopRatedDoctors = async () => {
                                     }}
                                 >
                                     <Image
-                                        src={doctor.profilePhoto}
+                                        src={doctor?.profilePhoto}
                                         alt='doctor'
                                         width={500}
                                         height={100}
