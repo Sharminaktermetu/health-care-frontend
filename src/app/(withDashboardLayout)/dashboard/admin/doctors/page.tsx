@@ -2,7 +2,7 @@
 import { Box, Button, Stack, TextField,IconButton, Paper, } from '@mui/material'
 import React, { useState } from 'react'
 import DoctorsModal from './components/DoctorsModal'
-
+import EditIcon from '@mui/icons-material/Edit';
 
 
 
@@ -11,6 +11,7 @@ import { DataGrid, GridColDef, GridDeleteIcon } from '@mui/x-data-grid';
 import { toast } from 'sonner'
 import { useDeleteDoctorMutation, useGetDoctorQuery } from '@/redux/api/doctorApi';
 import { useDebounced } from '@/redux/store';
+import Link from 'next/link';
 
 const doctorsPage = () => {
   const [isModalOpen, setIsModalOpen] =useState<boolean>(false)
@@ -29,7 +30,7 @@ if (!!debouncedItem) {
 
   const {data,isLoading} =useGetDoctorQuery({...query})
   const doctors = data?.doctors;
-  
+  console.log(doctors)
   const meta = data?.meta;
 
   const [deleteDoctor] =useDeleteDoctorMutation()
@@ -65,10 +66,31 @@ if (!!debouncedItem) {
       align: "center",
       renderCell:({row})=>{
       return (
+        <IconButton  aria-label="edit" onClick={()=>handleDelete(row.id)}>
+        <GridDeleteIcon />
+        </IconButton>
+         
+       
+      )
+    }
+  },
+    { 
+      field: 'edit',
+       headerName: 'Edit',
+       width: 450, 
+       flex: 1,
+      headerAlign: "center",
+      align: "center",
+      renderCell:({row})=>{
+      return (
   
-          <IconButton  aria-label="delete" onClick={()=>handleDelete(row.id)}>
-    <GridDeleteIcon />
-  </IconButton>
+         
+   <Link href={`/dashboard/admin/doctors/edit/${row.id}`}>
+   <IconButton  aria-label="delete">
+   <EditIcon /> 
+</IconButton>
+   
+   </Link>
        
       )
     }

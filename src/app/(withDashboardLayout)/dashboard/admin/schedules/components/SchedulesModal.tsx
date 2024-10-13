@@ -7,19 +7,29 @@ import { FieldValues } from "react-hook-form"
 import { TProps } from "../../specialties/components/SpecialistModal"
 import PHDatePicker from "@/app/components/Forms/PHDatePicker"
 import PHTimePicker from "@/app/components/Forms/PHTimePicker"
+import { dateFormatter } from "@/utils/dateFormatter"
+import { timeFormatter } from "@/utils/timeFormatter"
+import { useCreateSchedulesMutation } from "@/redux/api/schedules"
+import { toast } from "sonner"
 
 
 const SchedulesModal = ({open, setOpen}:TProps) => {
+  const [createSchedules]=useCreateSchedulesMutation()
+
 
     const handleFormSubmit = async (values: FieldValues) => {
-       console.log(values)
+       values.startDate =dateFormatter(values.startDate)
+       values.endDate =dateFormatter(values.endDate)
+       values.startTime=timeFormatter(values.startTime)
+       values.endTime =timeFormatter(values.endTime)
+   
         try {
-        //   const res = await createSpecialty(data).unwrap();
-        //   console.log(res);
-        //   if (res?.id) {
-        //     toast.success("Specialty created successfully!!");
-        //     setOpen(false);
-        //   }
+          const res = await createSchedules(values);
+         if (res?.data?.length) {
+          toast.success('Schedule created successfully')
+          setOpen(false)
+         }
+          
         } catch (err: any) {
           console.error(err.message);
         }
@@ -33,7 +43,7 @@ const SchedulesModal = ({open, setOpen}:TProps) => {
           </Grid2>
           
           <Grid2 size={{md:12}}>
-           <PHDatePicker name="endtDate" label="Start Date" fullWidth/>
+           <PHDatePicker name="endDate" label="End Date" fullWidth/>
           </Grid2>
           <Grid2 size={{md:6}}>
            <PHTimePicker name="startTime" label="Start Time" fullWidth/>

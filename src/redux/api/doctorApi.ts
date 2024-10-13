@@ -4,6 +4,7 @@ import { baseApi } from "./baseApi"
 import { TMeta } from "@/types"
 
 
+
 const doctorApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     createDoctor: build.mutation({
@@ -15,6 +16,7 @@ const doctorApi = baseApi.injectEndpoints({
       }),
       invalidatesTags:[tagTypes.doctor]
     }),
+    
    getDoctor: build.query({
       query:(arg: Record<string,any>)=>({
         url:'/doctor',
@@ -37,6 +39,53 @@ const doctorApi = baseApi.injectEndpoints({
       }),
       invalidatesTags:[tagTypes.doctor]
     }),
+
+   singleDoctor: build.query({
+      query:(id)=>({
+        url:`/doctor/${id}`,
+        method:"GET",
+      
+      }),
+      providesTags:[tagTypes.doctor]
+    }),
+   updateSingleDoctor: build.mutation({
+      query:(data)=>({
+        url:`/doctor/${data.id}`,
+        method:"PATCH",
+      data:data.body
+      }),
+      invalidatesTags:[tagTypes.doctor]
+    }),
+    createDoctorSchedules: build.mutation({
+      query:(data)=>({
+        url:'/doctor-schedule',
+        method:"POST",
+        data
+      }),
+      invalidatesTags:[tagTypes.doctor]
+    }),
+    getDoctorSchedules: build.query({
+      query:(arg: Record<string,any>)=>({
+        url:'/doctor-schedule',
+        method:"GET",
+      params:arg
+      }),
+      transformResponse:(response:[], meta:TMeta)=>({
+        schedules: response,
+        meta
+      }),
+
+      providesTags: [tagTypes.doctor]
+    }),
+
+    deleteDoctorSchedule: build.mutation({
+      query:(id)=>({
+        url:`/doctor-schedule/${id}`,
+        method:"DELETE",
+      
+      }),
+      invalidatesTags:[tagTypes.doctor]
+    }),
   }),
   
 })
@@ -44,6 +93,11 @@ const doctorApi = baseApi.injectEndpoints({
 export const { 
  useCreateDoctorMutation,
  useGetDoctorQuery,
- useDeleteDoctorMutation
+ useDeleteDoctorMutation,
+useSingleDoctorQuery,
+ useUpdateSingleDoctorMutation,
+ useCreateDoctorSchedulesMutation,
+ useGetDoctorSchedulesQuery,
+ useDeleteDoctorScheduleMutation
 
 } = doctorApi

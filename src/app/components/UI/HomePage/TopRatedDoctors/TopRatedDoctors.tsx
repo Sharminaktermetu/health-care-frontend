@@ -52,12 +52,12 @@ const TopRatedDoctors = async () => {
 
 
                     {
-                        doctors.map((doctor: any) => (
+                        doctors.slice(0,3).map((doctor: any) => (
 
                             <Card key={doctor.id}>
                                 <Box
                                     sx={{
-                                        width: '100%',
+                                        width: '300px',
                                         height: 300,
                                         '& img': {
                                             width: '100%',
@@ -67,12 +67,12 @@ const TopRatedDoctors = async () => {
                                         },
                                     }}
                                 >
-                                    <Image
+                                    {!doctor?.profilePhoto ?'':<Image
                                         src={doctor?.profilePhoto}
                                         alt='doctor'
                                         width={500}
                                         height={100}
-                                    />
+                                    />}
                                 </Box>
                                 <CardContent>
                                     <Typography gutterBottom variant="h5" component="div">

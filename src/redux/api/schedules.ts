@@ -10,11 +10,11 @@ const schedulesApi = baseApi.injectEndpoints({
       query:(data)=>({
         url:'/schedule',
         method:"POST",
-        contentType:"multipart/form-data",
         data
       }),
       invalidatesTags:[tagTypes.schedules]
     }),
+    
 
    getSchedules: build.query({
       query:(arg: Record<string,any>)=>({
@@ -23,7 +23,7 @@ const schedulesApi = baseApi.injectEndpoints({
       params:arg
       }),
       transformResponse:(response:[], meta:TMeta)=>({
-        scheduless: response,
+        schedules: response,
         meta
       }),
 
@@ -44,7 +44,8 @@ const schedulesApi = baseApi.injectEndpoints({
 
 export const { 
  useCreateSchedulesMutation,
- useGetSchedulesQuery,
- useDeleteSchedulesMutation
+useDeleteSchedulesMutation,
+useGetSchedulesQuery,
+
 
 } = schedulesApi

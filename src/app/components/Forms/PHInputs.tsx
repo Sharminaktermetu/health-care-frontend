@@ -11,7 +11,7 @@ type TInputProps = {
   sx?:SxProps,
   placeholder?:string,
   required?:boolean
- 
+  disabled?:boolean
   
 };
 
@@ -22,7 +22,8 @@ const PHInputs = ({
   size = 'small',
   fullWidth,
   sx,
-  required
+  required,
+  disabled
 }: TInputProps) => {
   const { control } = useFormContext();
 
@@ -35,6 +36,7 @@ const PHInputs = ({
         <TextField
           {...field}
           label={label}
+          disabled={disabled}
           type={type}
           variant="outlined"
           size={size}
